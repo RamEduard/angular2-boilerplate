@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <!-- Base tag for AngularJS Routing-->
+    <base href="/">
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>Angular 2 QuickStart</title>
+
+    <script src="public/pace/js/pace.js"></script>
+    <link href="public/pace/css/pace-barbershop.css" rel="stylesheet" />
+
+    <!-- 4. CSS -->
+    <!--<link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation-flex.min.css">-->
+
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css"/>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="public/css/styles.css"/>
+  </head>
+  <!-- 3. Display the application -->
+  <body role="document">
+    <my-app>
+      <div style="text-align: center;">
+        Loading...
+      </div>
+    </my-app>
+
+    <!-- 1. Load libraries -->
+    <script src="node_modules/es6-shim/es6-shim.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+
+    <!-- 2. Scripts -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!--<script src="node_modules/foundation-sites/dist/foundation.min.js"></script>-->
+    <!-- Boostrap-->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- 3. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/boot')
+              .then(null, console.error.bind(console));
+    </script>
+  </body>
+</html>
