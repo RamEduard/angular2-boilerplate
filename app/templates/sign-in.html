@@ -1,0 +1,46 @@
+<!-- Sign In Row -->
+<div class="row login-row">
+    <div class="col-xs-12">
+        <form class="form-signin" role="form" (ngSubmit)="signIn()" #signInForm="ngForm">
+            <h3 class="form-signin-heading">Sign In</h3>
+            <hr class="colorgraph"><br>
+            <!-- Error callout -->
+            <div class="callout callout-danger" *ngIf="model.error">
+                <button type="button" class="close" onclick="$('.callout').fadeOut(1000)">×</button>
+                <h4>Error</h4>
+                <p>{{ model.error.message }}</p>
+                <pre>{{ model.error.details | json }}</pre>
+            </div>
+            <!-- Success callout -->
+            <div class="callout callout-info" *ngIf="model.success">
+                <button type="button" class="close" onclick="$('.callout').fadeOut(1000)">×</button>
+                <h4>Sign In Successful</h4>
+                <p>{{ model.success.message }}</p>
+                <pre>{{ model.success.details | json}}</pre>
+            </div>
+            <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="model.emailOrUsername"
+                    ngControl="emailOrUsername"
+                    #emailOrUsername="ngForm"
+                    placeholder="Email"
+                    required=""
+                    autofocus="" />
+            <input
+                    type="password"
+                    class="form-control"
+                    [(ngModel)]="model.password"
+                    ngControl="password"
+                    #password="ngForm"
+                    placeholder="Password"
+                    required="" />
+            <button
+                    class="btn btn-lg btn-primary btn-block"
+                    type="submit"
+                    [disabled]="!signInForm.form.valid">Sign In</button>
+            <br />
+            <p>Do you have an Account? <a href="#/sign-up">Sign Up</a></p>
+        </form>
+    </div>
+</div>
