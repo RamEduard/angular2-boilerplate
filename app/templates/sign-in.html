@@ -40,7 +40,7 @@
                     type="submit"
                     [disabled]="!signInForm.form.valid">Sign In</button>
             <br />
-            <p>Do you have an Account? <a href="#/sign-up">Sign Up</a></p>
+            <p>Do you have an Account? <a [routerLink]="['SignUp']">Sign Up</a></p>
         </form>
     </div>
 </div>

@@ -10,6 +10,7 @@ import {HomeComponent} from './pages/home';
 import {PostsComponent} from './pages/posts';
 import {ContactComponent} from './pages/contact';
 import {SignInComponent} from './pages/sign-in';
+import {SignUpComponent} from './pages/sign-up';
 
 @Component({
     directives: [
@@ -44,6 +45,11 @@ import {SignInComponent} from './pages/sign-in';
         path: '/sign-in',
         name: 'SignIn',
         component: SignInComponent
+    },
+    {
+        path: '/sign-up',
+        name: 'SignUp',
+        component: SignUpComponent
     }
 ])
 
