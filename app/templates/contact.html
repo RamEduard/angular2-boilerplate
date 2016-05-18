@@ -1,0 +1,73 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Example Contact form <small>Using ContactService</small></h1>
+    </div>
+    <div class="row">
+        <!--<pre>{{diagnostic}}</pre>-->
+        <div class="col-md-4">
+            <!-- Success/Error callback -->
+            <div class="alert alert-success"
+                 *ngIf="model.success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{model.success}}
+            </div>
+            <div class="alert alert-danger"
+                 *ngIf="model.error">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{model.error}}
+            </div>
+            <!-- Contact Form -->
+            <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input id="name"
+                           type="text"
+                           class="form-control"
+                           [(ngModel)]="model.name"
+                           ngControl="name"
+                           #name="ngForm"
+                           required>
+                    <div class="text-danger"
+                         [hidden]="name.valid || name.pristine">
+                        Name is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input id="email"
+                           type="email"
+                           class="form-control"
+                           [(ngModel)]="model.email"
+                           ngControl="email"
+                           #email="ngForm"
+                           required>
+                    <div class="text-danger"
+                         [hidden]="email.valid || email.pristine">
+                        Email is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message"
+                              class="form-control"
+                              rows="3"
+                              [(ngModel)]="model.message"
+                              ngControl="message"
+                              #message="ngForm"
+                              required></textarea>
+                    <div class="text-danger"
+                         [hidden]="message.valid || message.pristine">
+                        Message is required
+                    </div>
+                </div>
+                <button type="submit"
+                        class="btn btn-default"
+                        [disabled]="!contactForm.form.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

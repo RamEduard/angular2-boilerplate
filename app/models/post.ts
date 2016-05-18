@@ -1,5 +1,8 @@
 export class Post {
-    id: number;
-    title: string;
-    author: string;
+
+    constructor (
+        public id: number,
+        public title: string,
+        public author: string
+    ) {  }
 }

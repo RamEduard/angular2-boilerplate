@@ -8,6 +8,7 @@ import {HeaderComponent} from './components/header';
 // Pages components
 import {HomeComponent} from './pages/home';
 import {PostsComponent} from './pages/posts';
+import {ContactComponent} from './pages/contact';
 
 // Models
 import {Post} from './models/post';
@@ -24,14 +25,15 @@ import {PostsService} from './services/posts';
         ROUTER_PROVIDERS
     ],
     selector: 'my-app',
-    template: `
-    <bootstrap-header></bootstrap-header>
-    <div class="container theme-showcase" role="main">
-        <router-outlet></router-outlet>
-    </div>`
+    templateUrl: 'app/templates/app.html'
 })
 
 @RouteConfig([
+    {
+        path: '/contact',
+        name: 'Contact',
+        component: ContactComponent
+    },
     {
         path: '/home',
         name: 'Home',
