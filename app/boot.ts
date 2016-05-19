@@ -11,23 +11,26 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {bootstrap} from 'angular2/platform/browser';
 
 // Bootstrap Component
-import {BoostrapAppComponent} from './components/bootstrap/app';
+//import {BoostrapAppComponent} from './components/bootstrap/app';
 
 // MDL Component
-//import {MdlAppComponent} from './components/mdl/app';
+import {MdlAppComponent} from './components/mdl/app';
 
 @Component({
     directives: [
-        BoostrapAppComponent,
+        MdlAppComponent,
         ROUTER_DIRECTIVES
     ],
     providers: [ROUTER_PROVIDERS],
     selector: 'my-app',
-    template: `<boostrap-app></boostrap-app>`
+    template: `<mdl-app></mdl-app>`
 })
 
 // Bootstrap routes
-@RouteConfig(BoostrapAppComponent.getRouterConfig())
+//@RouteConfig(BoostrapAppComponent.getRouterConfig())
+
+// MDL Routes
+@RouteConfig(MdlAppComponent.getRouterConfig())
 
 export class BootComponent {}
 
