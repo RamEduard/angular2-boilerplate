@@ -3,14 +3,14 @@ import {Component, OnInit} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
 // Components
-import {HeaderComponent} from './components/header';
+import {HeaderComponent} from './header';
 
 // Pages components
-import {HomeComponent} from './pages/home';
-import {PostsComponent} from './pages/posts';
-import {ContactComponent} from './pages/contact';
-import {SignInComponent} from './pages/sign-in';
-import {SignUpComponent} from './pages/sign-up';
+import {HomeComponent} from '../../pages/bootstrap/home';
+import {PostsComponent} from '../../pages/bootstrap/posts';
+import {ContactComponent} from '../../pages/bootstrap/contact';
+import {SignInComponent} from '../../pages/bootstrap/sign-in';
+import {SignUpComponent} from '../../pages/bootstrap/sign-up';
 
 @Component({
     directives: [
@@ -21,7 +21,7 @@ import {SignUpComponent} from './pages/sign-up';
         ROUTER_PROVIDERS
     ],
     selector: 'my-app',
-    templateUrl: 'app/templates/app.html'
+    templateUrl: 'app/templates/bootstrap/app.html'
 })
 
 @RouteConfig([
