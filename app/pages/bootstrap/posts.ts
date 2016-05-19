@@ -1,15 +1,15 @@
 import {Component, OnInit} from 'angular2/core';
 
-import {POSTS} from '../mock-posts';
-import {Post} from '../models/post';
-import {PostsService} from '../services/posts';
+import {POSTS} from '../../mock-posts';
+import {Post} from '../../models/post';
+import {PostsService} from '../../services/posts';
 
 @Component({
     providers: [
         PostsService
     ],
-    selector: 'posts',
-    templateUrl: 'app/templates/posts.html'
+    selector: 'bootstrap-posts',
+    templateUrl: 'app/templates/bootstrap/pages/posts.html'
 })
 
 export class PostsComponent implements OnInit {

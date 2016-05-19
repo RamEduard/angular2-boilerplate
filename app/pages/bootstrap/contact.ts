@@ -1,12 +1,12 @@
 import {Component} from 'angular2/core';
 import {NgForm} from 'angular2/common';
 
-import {ContactService} from '../services/contact';
+import {ContactService} from '../../services/contact';
 
 @Component({
     providers: [ContactService],
-    selector: 'contact',
-    templateUrl: 'app/templates/contact.html'
+    selector: 'boostrap-contact',
+    templateUrl: 'app/templates/bootstrap/pages/contact.html'
 })
 
 export class ContactComponent {

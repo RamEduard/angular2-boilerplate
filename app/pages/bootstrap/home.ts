@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
 
 @Component({
-    selector: 'home',
+    selector: 'bootstrap-home',
     styleUrls: ['app/styles/carousel.css'],
-    templateUrl: 'app/templates/home.html'
+    templateUrl: 'app/templates/bootstrap/pages/home.html'
 })
 
 export class HomeComponent {}

@@ -2,15 +2,15 @@ import {Component, OnInit} from 'angular2/core';
 import {NgForm} from 'angular2/common';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {User} from '../models/user';
-import {UsersService} from '../services/users';
+import {User} from '../../models/user';
+import {UsersService} from '../../services/users';
 
 @Component({
     directives: [ROUTER_DIRECTIVES],
     providers: [UsersService],
-    selector: 'sign-in',
+    selector: 'bootstrap-sign-in',
     styleUrls: ['app/styles/sign-in.css'],
-    templateUrl: 'app/templates/sign-in.html'
+    templateUrl: 'app/templates/bootstrap/pages/sign-in.html'
 })
 
 export class SignInComponent implements OnInit {

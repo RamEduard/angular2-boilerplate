@@ -1,6 +1,6 @@
-import {Component} from '../../../node_modules/angular2/core.d';
+import {Component} from 'angular2/core';
 // Routing pages
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '../../../node_modules/angular2/router.d';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
   directives: [ROUTER_DIRECTIVES],

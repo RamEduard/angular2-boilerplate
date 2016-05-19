@@ -1,6 +1,6 @@
-import {Component, OnInit} from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 // Routing pages
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 // Components
 import {HeaderComponent} from './header';
@@ -17,40 +17,44 @@ import {SignUpComponent} from '../../pages/bootstrap/sign-up';
         ROUTER_DIRECTIVES,
         HeaderComponent
     ],
-    providers: [
-        ROUTER_PROVIDERS
-    ],
-    selector: 'my-app',
+    selector: 'boostrap-app',
     templateUrl: 'app/templates/bootstrap/app.html'
 })
 
-@RouteConfig([
-    {
-        path: '/contact',
-        name: 'Contact',
-        component: ContactComponent
-    },
-    {
-        path: '/home',
-        name: 'Home',
-        component: HomeComponent,
-        useAsDefault: true
-    },
-    {
-        path: '/posts',
-        name: 'Posts',
-        component: PostsComponent
-    },
-    {
-        path: '/sign-in',
-        name: 'SignIn',
-        component: SignInComponent
-    },
-    {
-        path: '/sign-up',
-        name: 'SignUp',
-        component: SignUpComponent
-    }
-])
+export class BoostrapAppComponent {
 
-export class AppComponent {}
+    /**
+     * [getRouterConfig]
+     * @returns {any[]}
+     */
+    static getRouterConfig(): Array {
+        return [
+            {
+                path: '/contact',
+                name: 'Contact',
+                component: ContactComponent
+            },
+            {
+                path: '/home',
+                name: 'Home',
+                component: HomeComponent,
+                useAsDefault: true
+            },
+            {
+                path: '/posts',
+                name: 'Posts',
+                component: PostsComponent
+            },
+            {
+                path: '/sign-in',
+                name: 'SignIn',
+                component: SignInComponent
+            },
+            {
+                path: '/sign-up',
+                name: 'SignUp',
+                component: SignUpComponent
+            }
+        ];
+    }
+}
