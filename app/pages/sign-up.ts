@@ -15,12 +15,22 @@ import {UsersService} from '../services/users';
 
 export class SignUpComponent implements OnInit {
 
-    model = {
-        emailOrUsername: '',
+    user = {
+        firstName: '',
+        lastName: '',
+        displayName: '',
+        email: '',
         password: '',
+        passwordConfirm: '',
+        agree: false
+    };
+
+    message = {
         error: false,
         success: false
     };
+
+    submitted = false;
 
     users: User[];
 
@@ -41,7 +51,32 @@ export class SignUpComponent implements OnInit {
         document.head.appendChild(s);
     }
 
-    signUp() {
+    onAgree () {
+        this.user.agree = !this.user.agree;
+    }
 
+    signUp() {
+        this.submitted = true;
+
+        if (this.user.password != this.user.passwordConfirm) {
+            this.message.error = {
+                msg: 'Password don\'t match'
+            };
+        } else if (!this.user.agree){
+            this.message.error = {
+                msg: 'Agree Terms and Conditions.'
+            };
+        } else {
+            // TODO: Request sign up user
+
+            this.message.success = {
+                msg: 'Sign up success',
+                details: this.user
+            }
+        }
+    }
+
+    get diagnostic() {
+        return JSON.stringify(this.user);
     }
 }

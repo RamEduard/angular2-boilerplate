@@ -1,64 +1,84 @@
 <!-- Sign Up Row -->
 <div class="row signup-row">
     <div class="col-xs-12">
-        <form class="form-signin form-signup" role="form" (ngSubmit)="signUp()" #signUpForm="ngForm">
+        <form class="form-signin form-signup" (ngSubmit)="signUp()" #signUpForm="ngForm" role="form">
             <h2>Sign Up <small>It's free and always will be.</small></h2>
             <hr class="colorgraph">
             <!-- Error callout -->
-            <div class="callout callout-danger" *ngIf="model.error">
-                <button type="button" class="close" onclick="$('.callout').fadeOut(1000)">×</button>
+            <div class="alert alert-danger" *ngIf="message.error">
+                <button type="button" class="close" onclick="$('.alert-danger').fadeOut(1000)">×</button>
                 <h4>Error</h4>
-                <p>{{ model.error.message }}</p>
-                <pre>{{ model.error.details | json }}</pre>
+                <p>{{ message.error.msg }}</p>
+                <pre *ngIf="message.error.details">{{ message.error.details | json }}</pre>
             </div>
             <!-- Success callout -->
-            <div class="callout callout-info" *ngIf="model.success">
-                <button type="button" class="close" onclick="$('.callout').fadeOut(1000)">×</button>
+            <div class="alert alert-success" *ngIf="message.success">
+                <button type="button" class="close" onclick="$('.alert-success').fadeOut(1000)">×</button>
                 <h4>Sign In Successful</h4>
-                <p>{{ model.success.message }}</p>
-                <pre>{{ model.success.details | json}}</pre>
+                <p>{{ message.success.msg }}</p>
+                <pre *ngIf="message.success.details">{{ message.success.details | json}}</pre>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group">
                         <input
                                 type="text"
-                                ng-model="firstName"
                                 class="form-control input-lg"
                                 placeholder="First Name"
-                                tabindex="1"
+                                [(ngModel)]="user.firstName"
+                                ngControl="firstName"
+                                #firstName="ngForm"
                                 required=""
+                                tabindex="1"
                                 autofocus="">
+                        <div class="text-danger"
+                             [hidden]="firstName.valid || firstName.pristine">
+                            First Name is required
+                        </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group">
                         <input
                                 type="text"
-                                ng-model="lastName"
                                 class="form-control input-lg"
                                 placeholder="Last Name"
+                                [(ngModel)]="user.lastName"
+                                ngControl="lastName"
+                                #lastName="ngForm"
                                 tabindex="2"
                                 required="">
+                        <div class="text-danger"
+                             [hidden]="lastName.valid || lastName.pristine">
+                            Last Name is required
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <input
                         type="text"
-                        ng-model="displayName"
                         class="form-control input-lg"
                         placeholder="Display Name"
+                        [(ngModel)]="user.displayName"
+                        ngControl="displayName"
+                        #displayName="ngForm"
                         tabindex="3">
             </div>
             <div class="form-group">
                 <input
                         type="email"
-                        ng-model="email"
                         class="form-control input-lg"
                         placeholder="Email Address"
-                        tabindex="4"
-                        required="">
+                        [(ngModel)]="user.email"
+                        ngControl="email"
+                        #email="ngForm"
+                        required=""
+                        tabindex="4">
+                <div class="text-danger"
+                     [hidden]="email.valid || email.pristine">
+                    Email is required
+                </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -68,19 +88,32 @@
                                 ng-model="password"
                                 class="form-control input-lg"
                                 placeholder="Password"
-                                tabindex="5"
-                                required="">
+                                [(ngModel)]="user.password"
+                                ngControl="password"
+                                #password="ngForm"
+                                required=""
+                                tabindex="5">
+                        <div class="text-danger"
+                             [hidden]="password.valid || password.pristine">
+                            Password is required
+                        </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group">
                         <input
                                 type="password"
-                                ng-model="passwordConfirm"
                                 class="form-control input-lg"
                                 placeholder="Confirm Password"
-                                tabindex="6"
-                                required="">
+                                [(ngModel)]="user.passwordConfirm"
+                                ngControl="passwordConfirm"
+                                #passwordConfirm="ngForm"
+                                required=""
+                                tabindex="6">
+                        <div class="text-danger"
+                             [hidden]="passwordConfirm.valid || passwordConfirm.pristine">
+                            Confirm password
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,7 +125,7 @@
                                 class="btn"
                                 data-color="info"
                                 tabindex="7"
-                                ng-click="onAgree()">I Agree</button>
+                                (click)="onAgree()">I Agree</button>
                         <input
                                 type="checkbox"
                                 name="t_and_c"
@@ -107,8 +140,16 @@
 
             <hr class="colorgraph">
             <div class="row">
-                <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-                <div class="col-xs-12 col-md-6"><a [routerLink]="['SignIn']" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+                <div class="col-xs-12 col-md-6">
+                    <input class="btn btn-primary btn-block btn-lg"
+                           type="submit"
+                           value="Register"
+                           tabindex="7"
+                           [disabled]="!signUpForm.form.valid || !user.agree">
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <a [routerLink]="['SignIn']" class="btn btn-success btn-block btn-lg">Sign In</a>
+                </div>
             </div>
         </form>
     </div>
